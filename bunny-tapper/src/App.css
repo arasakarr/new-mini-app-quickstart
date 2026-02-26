@@ -1,0 +1,172 @@
+.App {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* City background elements */
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 5%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 5%),
+    linear-gradient(to bottom, #0c0c1d, #1a1a2e);
+  z-index: -2;
+}
+
+.App::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.1) 100%),
+    linear-gradient(0deg, transparent 95%, rgba(255, 255, 255, 0.1) 100%);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+.menu-screen, .game-screen, .leaderboard-screen, .checkin-screen, .wallet-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-btn, .back-btn, .checkin-btn {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 250px;
+}
+
+.menu-btn:hover, .back-btn:hover, .checkin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.menu-btn:active, .back-btn:active, .checkin-btn:active {
+  transform: translateY(0);
+}
+
+.game-screen {
+  position: relative;
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bunny {
+  width: 150px;
+  height: 150px;
+  font-size: 5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.bunny::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff9a9e 0%, #fad0c4 100%);
+  filter: blur(10px);
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+.bunny:active {
+  transform: scale(0.95);
+}
+
+.leaderboard-screen ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.leaderboard-screen li {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.checkin-screen {
+  text-align: center;
+}
+
+.checkin-screen h2 {
+  margin-bottom: 1.5rem;
+}
+
+.checkin-screen p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.back-btn {
+  margin-top: 2rem;
+}
+
+.wallet-screen {
+  text-align: center;
+}
+
+.wallet-screen h2 {
+  margin-bottom: 1.5rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
